@@ -17,27 +17,18 @@ import java.nio.channels.FileChannel;
  */
 public class copyByBuffer {
     public static void main(String[] args) throws Exception {
-
         FileInputStream fileInputStream = new FileInputStream("file01.txt");
-
         FileChannel channel01 = fileInputStream.getChannel();
-
         FileOutputStream fileOutputStream = new FileOutputStream("file02.txt");
-
         FileChannel channel02 = fileOutputStream.getChannel();
-
         ByteBuffer buffer = ByteBuffer.allocate(512);
-
         while (true){
-
             //重要的操作：对buffer做清空的操作
             buffer.clear();
-
             int read = channel01.read(buffer);
             if(read == -1){
                 break;
             }
-
             //将buffer里面的数据写入
             buffer.flip();
             channel02.write(buffer);
@@ -45,9 +36,5 @@ public class copyByBuffer {
         //关相关的流
         fileInputStream.close();
         fileOutputStream.close();
-
-
-
-
     }
 }

@@ -23,7 +23,6 @@ public class BIOserver {
 
         //先创建一个线程池等待连接
         //监听到请求就做出应答
-
         ExecutorService ThreadPool = Executors.newCachedThreadPool();
 
         ServerSocket serverSocket = new ServerSocket(6666);
@@ -43,8 +42,6 @@ public class BIOserver {
                 }
             });
         }
-
-
     }
 
     //客户端方法
